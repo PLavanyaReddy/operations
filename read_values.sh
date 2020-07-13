@@ -33,6 +33,22 @@ function descending_sort(){
 		done
 	done
 }
+function ascending_sort(){
+        n=${#arr[@]}
+        for(( i=0;i<n;i++ ))
+        do
+                for (( j=0;j<n-i-1;j++ ))
+                do
+                        if [ ${arr[j]} -gt ${arr[$((j+1))]} ]
+                        then
+                                temp=${arr[j]}
+                                arr[j]=${arr[$((j+1))]}
+                                arr[$((j+1))]=$temp
+                        fi
+                done
+        done
+}
+
 read -p "Enter first value" num1
 read -p "Enter second value" num2
 read -p "Enter third value" num3
@@ -51,4 +67,7 @@ store_Array ${dict[@]}
 echo ${arr[@]}
 echo "Array sorted in descending order:"
 descending_sort ${arr[@]}
+echo ${arr[@]}
+echo "Array sorted in ascending order:"
+ascending_sort ${arr[@]}
 echo ${arr[@]}
