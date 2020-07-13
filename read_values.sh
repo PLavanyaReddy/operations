@@ -18,6 +18,21 @@ function operation2(){
 function store_Array(){
 	arr=("$@")
 }
+function descending_sort(){
+	n=${#arr[@]}
+	for(( i=0;i<n;i++ ))
+	do
+		for (( j=0;j<n-i-1;j++ ))
+		do
+			if [ ${arr[j]} -lt ${arr[$((j+1))]} ]
+			then
+				temp=${arr[j]}
+				arr[j]=${arr[$((j+1))]}
+				arr[$((j+1))]=$temp
+			fi
+		done
+	done
+}
 read -p "Enter first value" num1
 read -p "Enter second value" num2
 read -p "Enter third value" num3
@@ -29,6 +44,11 @@ operation1 $num1 $num2 $num3
 echo "The result of a+b*c is "$opr1
 operation2 $num1 $num2 $num3
 echo "The result of a*b+c is "$opr2
+echo "Results added to dictionary:"
 echo ${dict[@]}
+echo "Results added to array from dictionary:"
 store_Array ${dict[@]}
+echo ${arr[@]}
+echo "Array sorted in descending order:"
+descending_sort ${arr[@]}
 echo ${arr[@]}
