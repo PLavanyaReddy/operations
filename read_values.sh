@@ -15,6 +15,9 @@ function operation2(){
 	opr2=$(( ($1*$2)+$3 ))
 	dict["opr2"]=$opr2
 }
+function store_Array(){
+	arr=("$@")
+}
 read -p "Enter first value" num1
 read -p "Enter second value" num2
 read -p "Enter third value" num3
@@ -27,3 +30,5 @@ echo "The result of a+b*c is "$opr1
 operation2 $num1 $num2 $num3
 echo "The result of a*b+c is "$opr2
 echo ${dict[@]}
+store_Array ${dict[@]}
+echo ${arr[@]}
