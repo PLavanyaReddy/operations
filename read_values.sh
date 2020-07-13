@@ -1,6 +1,6 @@
 #!/bin/bash
 function operation1(){
-	opr2=$(( $1+($2*$3) ))
+	opr1=$(( $1+($2*$3) ))
 }
 read -p "Enter first value" num1
 read -p "Enter second value" num2
